@@ -390,7 +390,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5568878185874568450, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_Constraints
-      value: 108
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2874258816545423174, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_RootOrder
@@ -441,9 +441,33 @@ PrefabInstance:
       value: coffeeproba (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_Axis.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_XMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 1735669147}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_AngularXMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_AngularZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_SecondaryAxis.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 0
@@ -459,6 +483,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7336259015709839646, guid: 4b911680e146ed34b93320f341c319d9, type: 3}
   m_PrefabInstance: {fileID: 694009584}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &624209638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2874258816545423175, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+  m_PrefabInstance: {fileID: 2127573037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!138 &624209647
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624209638}
+  m_ConnectedBody: {fileID: 2144736670}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &655709034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5568878185874568450, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_Constraints
-      value: 108
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2874258816545423174, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_RootOrder
@@ -1302,8 +1346,12 @@ PrefabInstance:
       value: coffeeproba (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_Axis.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_XMotion
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_YMotion
@@ -1315,11 +1363,15 @@ PrefabInstance:
       objectReference: {fileID: 915893628}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_AngularXMotion
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_AngularZMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_SecondaryAxis.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -1900,7 +1952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5568878185874568450, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_Constraints
-      value: 108
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2874258816545423174, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_RootOrder
@@ -1951,9 +2003,33 @@ PrefabInstance:
       value: coffeeproba
       objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_Axis.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_XMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 915893628}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_AngularXMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_AngularZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
+      propertyPath: m_SecondaryAxis.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6637768606483854438, guid: cd7f1a7b77a48cf47956af2b3fa319f0, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 0
