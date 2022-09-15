@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaneMover : MonoBehaviour
 {
-     private float _moveSpeed = - 5f;
+     private float _moveSpeed = - 3f;
     public float MoveSpeed => _moveSpeed;
      
     private void Update()
