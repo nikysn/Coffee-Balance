@@ -8,7 +8,6 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _moveSpeedForward = 1;
     [SerializeField] private PlaneMover _planeMover;
     [SerializeField] private float _range;
-    [SerializeField] private tray _tray;
     private Input _playerInput;
     public float DirectionSide { get; private set; }
     private Rigidbody _body;
@@ -41,7 +40,7 @@ public class PlayerMover : MonoBehaviour
     {
         DirectionSide = _playerInput.Player.Move.ReadValue<float>();
        // _tray.RotationTray(DirectionSide);
-        // _tray.ResetRotation(DirectionSide);
+       // _tray.ResetRotation(DirectionSide);
 
         if (DirectionSide < 0 && (transform.position.x <= -_range))
         {

@@ -1,44 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class tray : MonoBehaviour
+public class Tray : MonoBehaviour
 {
-    private float _rangeRotation = 15;
-    private Quaternion m_MyQuaternion;
+    [field: SerializeField] public List<Coffee> CoffeesOnTray { get; private set; }
 
-    public void RotationTray(float readValue)
+    public void AddCoffeeOnTray(Coffee coffee)
     {
-        if (readValue < 0 && (transform.rotation.z <= _rangeRotation))
-        {
-            //  Mathf.MoveTowards(transform.rotation.z, 45, 1 * Time.deltaTime);
-            // transform.Rotate(new Vector3(0, 0, 45) * 10 * Time.deltaTime);
-            // SetPositionX(-_rangeRotation);
-        }
-
-        if (readValue > 0)
-        {
-            transform.Rotate(new Vector3(0, 0, -45) * 1 * Time.deltaTime);
-        }
-
+        CoffeesOnTray.Add(coffee);
     }
 
-    public void ResetRotation(float readValue)
+    public Vector3 GetPositionLastCoffeeOnTray()
     {
-        if (readValue == 0)
+        Vector3 coffeePosition = new Vector3(CoffeesOnTray.Last()._chainPoint.transform.position.x + 0.5f, CoffeesOnTray.Last()._chainPoint.transform.position.y - 0.5f, CoffeesOnTray.Last()._chainPoint.transform.position.z);
+        return coffeePosition;
+    }
+
+    public IEnumerator PassCoffee(Transform chainPoints)
+    {
+         Coffee lastCoffee = CoffeesOnTray.Last();
+        CoffeesOnTray.Remove(lastCoffee);
+        lastCoffee.IsTriggerOn();
+        lastCoffee.SetParent(chainPoints);
+        Coffee lastCoffee2 = CoffeesOnTray.Last();
+        lastCoffee2.FixedPositionOff();
+        Transform current = lastCoffee.transform;
+
+        while (Vector3.zero != current.localPosition)
         {
-            Mathf.MoveTowards(transform.rotation.z, Quaternion.identity.z, 100 * Time.deltaTime);
-
+            current.localPosition = Vector3.MoveTowards(current.localPosition, Vector3.zero, 4 * Time.deltaTime);
+            current.localRotation = Quaternion.identity;
+            yield return null;
         }
-        // transform.rotation = Quaternion.identity;
+
+        lastCoffee.IsTriggerOff();
     }
 
-    public void SetPositionX(float readValue)
+    public void DropCoffee(Transform chainPoints)
     {
-        if (readValue <= 0 && transform.rotation.z >= -_rangeRotation)
-            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, _rangeRotation, -45);
+        Coffee penultimateCoffee = CoffeesOnTray[CoffeesOnTray.Count - 2];
+        penultimateCoffee.FixedJointOff();
+        penultimateCoffee.FixedPositionOff();
 
+          Coffee lastCoffee = CoffeesOnTray.Last();
+        lastCoffee.SetParent(chainPoints);
+        CoffeesOnTray.Remove(lastCoffee);
     }
-
-
 }
