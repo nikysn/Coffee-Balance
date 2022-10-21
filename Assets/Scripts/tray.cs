@@ -20,7 +20,7 @@ public class Tray : MonoBehaviour
 
     public IEnumerator PassCoffee(Transform chainPoints)
     {
-         Coffee lastCoffee = CoffeesOnTray.Last();
+        Coffee lastCoffee = CoffeesOnTray.Last();
         CoffeesOnTray.Remove(lastCoffee);
         lastCoffee.IsTriggerOn();
         lastCoffee.SetParent(chainPoints);
@@ -30,7 +30,7 @@ public class Tray : MonoBehaviour
 
         while (Vector3.zero != current.localPosition)
         {
-            current.localPosition = Vector3.MoveTowards(current.localPosition, Vector3.zero, 4 * Time.deltaTime);
+            current.localPosition = Vector3.MoveTowards(current.localPosition, Vector3.zero, 0.2f * Time.deltaTime);
             current.localRotation = Quaternion.identity;
             yield return null;
         }
@@ -44,7 +44,7 @@ public class Tray : MonoBehaviour
         penultimateCoffee.FixedJointOff();
         penultimateCoffee.FixedPositionOff();
 
-          Coffee lastCoffee = CoffeesOnTray.Last();
+        Coffee lastCoffee = CoffeesOnTray.Last();
         lastCoffee.SetParent(chainPoints);
         CoffeesOnTray.Remove(lastCoffee);
     }
