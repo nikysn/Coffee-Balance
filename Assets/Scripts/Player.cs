@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         Speed();
         _accomulator.AddCharge(DeltaPositionX);
         m_material.Lerp(m_materialWhite, m_materialRed, _accomulator.NormalizeCharge);
-        Debug.Log(_accomulator.NormalizeCharge);
+       // Debug.Log(_accomulator.NormalizeCharge);
         _lastPositionX = transform.position.x;
     }
 
@@ -41,11 +41,6 @@ public class Player : MonoBehaviour
     public void SellCoffee(Transform chainPoint)
     {
         _coroutineWhite = StartCoroutine(_tray.PassCoffee(chainPoint));
-    }
-
-    private void SetDefaultColor()
-    {
-
     }
 
     public void Slide()

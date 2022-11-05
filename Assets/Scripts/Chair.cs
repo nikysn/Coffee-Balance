@@ -11,9 +11,6 @@ public class Chair : MonoBehaviour
         if (collision.TryGetComponent<PlayerMover>(out PlayerMover player))
         {
             _planeMover.StartCoroutine(_planeMover.enumerator());
-            Debug.Log("Â ענטדדונו");
         }
     }
-
-    
 }

@@ -10,6 +10,7 @@ public class PoolCoffee : MonoBehaviour
     [SerializeField] private List<Coffee> _poolCoffee = new List<Coffee>();
     [SerializeField] private List<Coffee> _listCoffeeAnPlane = new List<Coffee>();
     [SerializeField] private Tray _tray;
+    
 
     private void Update()
     {
@@ -34,7 +35,7 @@ public class PoolCoffee : MonoBehaviour
     {
         TakeCoffee();
         _listCoffeeAnPlane.Remove(coffee);
-        _poolCoffee.Add(coffee);
+       // _poolCoffee.Add(coffee);
     }
 
     private void TakeCoffee()
@@ -43,27 +44,31 @@ public class PoolCoffee : MonoBehaviour
         StartCoroutine(MoveCoffee(coffee));
     }
 
-
     IEnumerator MoveCoffee(Coffee coffee)
     {
-        Coffee lastCoffee = _tray.CoffeesOnTray.Last();
-        Transform target = lastCoffee._chainPoint.transform;
+        Transform targetPosition = _tray.TargetSelection();
+        Transform targerRotation = _tray.TargetRotation();
+        Transform target = _tray.GetTarget();
+        coffee.SetParent(targetPosition);
         Transform current = coffee.transform;
         float speed = 4f;
-        coffee.SetParent(_tray.CoffeesOnTray.Last()._chainPoint.transform);
 
-        while (Vector3.zero != current.localPosition && coffee.transform.position != Vector3.zero)
+        while (current.localPosition != Vector3.zero)
         {
-             current.localPosition = Vector3.MoveTowards(current.localPosition, Vector3.zero, speed * Time.deltaTime);
+            current.localPosition = Vector3.MoveTowards(current.localPosition, Vector3.zero, speed * Time.deltaTime);
             coffee.transform.DORotate(Vector3.zero, 0.2f, RotateMode.Fast);
             yield return null;
         }
 
-        current.localRotation = target.localRotation;
-        lastCoffee.FixedJoint(coffee.Rigidbody);
-        lastCoffee.FixedPosition();
+        current.localRotation = targetPosition.localRotation;
+        coffee.SetParent(null);
+        coffee.Following(targetPosition, targerRotation, target, true);
+       // lastCoffee.FixedJoint(coffee.Rigidbody);
+       //  lastCoffee.FixedPosition();
+       //  lastCoffee.SetSpringXDrive(3000);
         _tray.AddCoffeeOnTray(coffee);
         _poolCoffee.Remove(coffee);
-        coffee.IsTriggerOff();
+       // coffee.IsTriggerOff();
     }
+
 }

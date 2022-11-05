@@ -15,7 +15,6 @@ public class PlayerMover : MonoBehaviour
         }
     }
 
-
     private void MoveSideways()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
